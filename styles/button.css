@@ -1,0 +1,67 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+.h1{
+    height: 100vh;
+    width: 100%;
+    background-color: aquamarine;
+    display: flex; 
+}
+.h2{
+    display: flex;
+    float: right;
+    width: 70%;
+    background: url("../images/eat.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.h3{
+    border: none;
+    color: rgb(79, 19, 19);
+    width: 30%;
+    background-color:wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+button{
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    display: inline;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 5px;
+   
+}
+.b1{
+    background-color: white;
+    color: black;
+    border: 2px solid #187693;
+    display: flex;
+    width: 150px;
+    height: 50px;
+    box-sizing: border-box;
+   
+    
+}
+.b1:hover{
+    background-color:#187693; 
+    color: white;
+}
+.b2{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #7a5892;
+    width: 150px;
+    height: 50px;
+    box-sizing: border-box;
+}
+.b2:hover{
+        background-color: #7a5892BA;
+        color: white;
+}

@@ -1,0 +1,21 @@
+body{
+    background: url("../images/service.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      background-color:rgba(0,0,0,0.6);
+
+}
+.services{
+    font-size: 30px;
+    padding: 50px;
+    text-align: center;
+    
+    color: rgb(0, 0, 0);
+}
+.list{
+    font-size: 20px;
+    text-align: left;           
+  display: flex;
+  justify-content: center;
+}
