@@ -1,67 +1,85 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
+import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js";
 
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
-  import { getDatabase,set,ref} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
-  import { getFirestore,collection, addDoc  } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCS_pE9Xq58kJQM1Gjl3TueEAjTJWQ8bjw",
+  authDomain: "food-tracker-d8d05.firebaseapp.com",
+  projectId: "food-tracker-d8d05",
+  storageBucket: "food-tracker-d8d05.appspot.com",
+  messagingSenderId: "685137656929",
+  appId: "1:685137656929:web:9a8ff3c8e6aa4884933e20",
+};
 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const db = getFirestore(app);
+// const database = getDatabase(app);
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyCS_pE9Xq58kJQM1Gjl3TueEAjTJWQ8bjw",
-    authDomain: "food-tracker-d8d05.firebaseapp.com",
-    projectId: "food-tracker-d8d05",
-    storageBucket: "food-tracker-d8d05.appspot.com",
-    messagingSenderId: "685137656929",
-    appId: "1:685137656929:web:9a8ff3c8e6aa4884933e20"
-  };
+// ************* RESTAURANT FUNCTIONALITY START *********************
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth();
-  const db = getFirestore(app);
-  const submitData=document.getElementById('submitBtn');
-  const database = getDatabase(app);
+// Restaurant Registration 🔻
 
+const submitData = $("#submitBtn");
 
-  submitData.addEventListener('click', (e) => {
-    e.preventDefault();
+submitData.click((e) => {
+  e.preventDefault();
 
-    var email=$("#email").val()
-    var password=$("#password").val()
-    var ownerName=$("#ownerName").val()
-    var restaurantName=$("#restname").val()
-    
+  let email = $("#email").val();
+  let password = $("#password").val();
+  let ownerName = $("#ownername").val();
+  let restaurantName = $("#restname").val();
 
-createUserWithEmailAndPassword(auth, email, password)
-.then((userCredential) => {
-  // Signed in 
-  const user = userCredential.user;
-  // ... user.uid
+  if (email === "" || password === "" || ownerName === "" || restaurantName === "") return alert("You should enter all fields.");
+  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) return alert("Enter valid Email ID");
+  if (password.length <= 6) return alert("Password should contain more than 6 characters");
 
-  try {
-    const docRef = await addDoc(collection(db, "restaurants"), {
-      email,
-      ownerName,
-      restaurantName
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(async (userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ... user.uid
+      try {
+        const data = {
+          uid: user.uid,
+          email,
+          ownerName,
+          restaurantName,
+        };
+        await addDoc(collection(db, "restaurants"), data);
+        window.location.href = "/html/login.html";
+        alert("Restaurant registration is successfull");
+      } catch (e) {
+        alert("Error adding restaurant to DB.");
+        console.error("Error adding document: ", e);
+      }
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage, errorCode);
+      alert("Error in restaurant registration");
     });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-
-  
-})
-.catch((error) => {
-  const errorCode = error.code;
-  const errorMessage = error.message;
-  console.log(errorMessage,errorCode);
-
-  // ..
-  alert('errorMessage')
 });
 
-  })
+// Restaurant Data Reading - adminmod.html
+
+const restaurantQuerySnapshot = await getDocs(collection(db, "restaurants"));
+const totalRestaurants = restaurantQuerySnapshot.size;
+$("#totalRestaurantCount").html(totalRestaurants);
+
+// querySnapshot.forEach((doc) => {
+// doc.data() is never undefined for query doc snapshots
+//   console.log(doc.id, " => ", doc.data());
+// });
+
+// ************* RESTAURANT FUNCTIONALITY END *********************
+
+// ************* CUSTOMER FUNCTIONALITY START *********************
