@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Availability Tracker</title>
+    <link rel="stylesheet" href="../styles/front.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <nav class="navbar">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="../html/button.html">Login</a></li>
+            <li><a href="../html/services.html">Services</a></li>
+            <li><a href="../html/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="content">
+          <h1>Food Availability Tracker</h1>
+          <br />
+          <marquee width="50%" height="30" hspace="20" bgcolor="white">
+            <font size="4">
+              This is to help you to find the availability of food items in the
+              restraunt
+            </font>
+          </marquee>
+          <br />
+
+          <div class="location">
+            <center>
+              <input type="text" placeholder="Enter the location" />
+
+              <button onclick="getLocation()">Gps</button>
+            </center>
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
