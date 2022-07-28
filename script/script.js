@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
 import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
 import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js";
 
@@ -27,9 +27,9 @@ const db = getFirestore(app);
 
 // Restaurant Registration 🔻
 
-const submitData = $("#submitBtn");
+const registerButton = $("#submitBtn");
 
-submitData.click((e) => {
+registerButton.click((e) => {
   e.preventDefault();
 
   let email = $("#email").val();
@@ -69,17 +69,44 @@ submitData.click((e) => {
     });
 });
 
+// Restaurant Login
+
+const loginButton = $("#loginBtn");
+
+loginButton.click((e) => {
+  e.preventDefault();
+
+  let email = $("#email").val();
+  let password = $("#password").val();
+
+  if (email === "" || password === "") return alert("You should enter all fields.");
+  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) return alert("Enter valid Email ID");
+  // if (password.length <= 6) return alert("Password should contain more than 6 characters");
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(async (userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ... user.uid
+      window.location.href = "/html/";
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });
+});
+
+
 // Restaurant Data Reading - adminmod.html
 
 const restaurantQuerySnapshot = await getDocs(collection(db, "restaurants"));
 const totalRestaurants = restaurantQuerySnapshot.size;
 $("#totalRestaurantCount").html(totalRestaurants);
 
-// querySnapshot.forEach((doc) => {
-// doc.data() is never undefined for query doc snapshots
-//   console.log(doc.id, " => ", doc.data());
-// });
 
 // ************* RESTAURANT FUNCTIONALITY END *********************
 
-// ************* CUSTOMER FUNCTIONALITY START *********************
+// ************* ADMIN FUNCTIONALITY START *********************
+
+
+// ************* ADMIN FUNCTIONALITY END *********************
