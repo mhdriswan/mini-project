@@ -6,7 +6,10 @@
     <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
     <link rel="stylesheet" href="../styles/adminmod.css" />
     <!-- Boxicons CDN Link -->
-    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
@@ -61,7 +64,7 @@
         </div> -->
         <div class="profile-details">
           <!--<img src="images/profile.jpg" alt="">-->
-          <span class="admin_name">Muhammad Riswan</span>
+          <span class="admin_name"></span>
         </div>
       </nav>
 
@@ -157,5 +160,11 @@
     ></script>
     <script src="../script/script.js" type="module"></script>
     <script src="../script/admin.js"></script>
+    <script>
+      $(document).ready(function () {
+        const adminName = window.localStorage.getItem("adminname");
+        $(".admin_name").html(adminName);
+      });
+    </script>
   </body>
 </html>
