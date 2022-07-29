@@ -176,3 +176,87 @@ adminLoginBtn.click((e) => {
 });
 
 // ************* ADMIN FUNCTIONALITY END *********************
+
+// ************* CUSTOMER FUNCTIONALITY START *********************
+
+const customerregButton = $("#customerreg");
+
+customerregButton.click((e) => {
+  console.log("Customer Reg Button CLicked`");
+  e.preventDefault();
+
+  let email = $("#email").val();
+  let password = $("#password").val();
+  let username = $("#username").val();
+
+  if (email === "" || password === "" || username === "")
+    return alert("You should enter all fields.");
+  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+    return alert("Enter valid Email ID");
+  if (password.length <= 6)
+    return alert("Password should contain more than 6 characters");
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(async (userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ... user.uid
+      try {
+        const data = {
+          uid: user.uid,
+          email,
+          username,
+        };
+        await addDoc(collection(db, "customers"), data);
+        window.location.href = "/html/customerlogin.html";
+        alert("Customer registration is successfull");
+      } catch (e) {
+        alert("Error adding customer to DB.");
+        console.error("Error adding document: ", e);
+      }
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage, errorCode);
+      alert("Error in customer registration");
+    });
+});
+
+// Restaurant Login
+
+const customerLoginBtn = $("#customerLoginBtn");
+
+customerLoginBtn.click((e) => {
+  e.preventDefault();
+  console.log("Customer Login Button CLicked");
+
+  let email = $("#email").val();
+  let password = $("#password").val();
+
+  if (email === "" || password === "")
+    return alert("You should enter all fields.");
+  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+    return alert("Enter valid Email ID");
+  // if (password.length <= 6) return alert("Password should contain more than 6 characters");
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(async (userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ... user.uid
+      window.location.href = "/";
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });
+});
+
+// Restaurant Data Reading - adminmod.html
+
+const customerQuerySnapshot = await getDocs(collection(db, "customers"));
+const totalCustomers = customerQuerySnapshot.size;
+$("#totalCustomers").html(totalCustomers);
+
+// ************* CUSTOMER FUNCTIONALITY END *********************
