@@ -1,177 +1,176 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../styles/restaurantsmain.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <div class="sidebar">
-      <div class="logo-details">
-        <i class="bx bxs-user-circle"></i>
-        <span class="logo_name">RESTAURANTS</span>
-      </div>
-      <ul class="nav-links">
-        <li id="dashboardSideBtn">
-          <a href="#" class="active">
-            <i class="bx bx-grid-alt"></i>
-            <span class="links_name">My Profile</span>
-          </a>
-        </li>
-        <li id="restaurantSideBtn">
-          <a href="#">
-            <i class="bx bx-box"></i>
-            <span class="links_name">Food Menu</span>
-          </a>
-        </li>
-        <li id="customerSideBtn">
-          <a href="#">
-            <i class="bx bx-list-ul"></i>
-            <span class="links_name">Table Reservation</span>
-          </a>
-        </li>
-        <li id="parkingBtn">
-          <a href="#">
-            <i class="bx bx-pie-chart-alt-2"></i>
-            <span class="links_name">Parking Reservation</span>
-          </a>
-        </li>
 
-        <li class="log_out">
-          <a href="#">
-            <i class="bx bx-log-out"></i>
-            <span class="links_name">Log out</span>
-          </a>
-        </li>
-      </ul>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../styles/restaurantsmain.css" />
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class="bx bxs-user-circle"></i>
+      <span class="logo_name">RESTAURANTS</span>
     </div>
-    <section class="home-section">
-      <nav>
-        <div class="sidebar-button">
-          <i class="bx bx-menu sidebarBtn"></i>
-          <span class="dashboard">My Profile</span>
-        </div>
-        <!-- <div class="search-box">
+    <ul class="nav-links">
+      <li id="dashboardSideBtn">
+        <a href="#" class="active">
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">My Profile</span>
+        </a>
+      </li>
+      <li id="restaurantSideBtn">
+        <a href="#">
+          <i class="bx bx-box"></i>
+          <span class="links_name">Food Menu</span>
+        </a>
+      </li>
+      <li id="customerSideBtn">
+        <a href="#">
+          <i class="bx bx-list-ul"></i>
+          <span class="links_name">Table Reservation</span>
+        </a>
+      </li>
+      <li id="parkingBtn">
+        <a href="#">
+          <i class="bx bx-pie-chart-alt-2"></i>
+          <span class="links_name">Parking Reservation</span>
+        </a>
+      </li>
+
+      <li class="log_out">
+        <a href="#">
+          <i class="bx bx-log-out"></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class="bx bx-menu sidebarBtn"></i>
+        <span class="dashboard">My Profile</span>
+      </div>
+      <!-- <div class="search-box">
           <input type="text" placeholder="Search..." />
           <i class="bx bx-search"></i>
         </div> -->
-        <div class="profile-detailsl̥ō">
-          <!--<img src="images/profile.jpg" alt="">-->
-          <span class="admin_name"></span>
-        </div>
-      </nav>
+      <div class="profile-detailsl̥ō">
+        <!--<img src="images/profile.jpg" alt="">-->
+        <span class="admin_name"></span>
+      </div>
+    </nav>
 
 
-      <div id="myprofile">
-        <div class="home-content" id="dashboard">
-         <h1 class="heading">About Me</h1>
-         
-         
-         <div class="container">
-           <form action="/action_page">
-             <div class="row">
-               <div class="col-25">
-                 <label for="fname">Add Profile pic</label>
-               </div>
-               <div class="col-75">
-                 <input type="file" id="fname" name="firstname" placeholder="Add photos">
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-25">
-                 <label for="lname">Name</label>
-               </div>
-               <div class="col-75">
-                 <input type="text" id="lname" name="lastname" placeholder="Restaurant Name">
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-25">
-                
+    <div id="myprofile">
+      <div class="home-content" id="dashboard">
+        <h1 class="heading">About Me</h1>
+
+
+        <div class="container">
+          <form action="/action_page">
+            <div class="row">
+              <div class="col-25">
+                <label for="fname">Add Profile pic</label>
+              </div>
+              <div class="col-75">
+                <input type="file" id="fname" name="firstname" placeholder="Add photos">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="lname">Name</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="lname" name="lastname" placeholder="Restaurant Name">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+
                 <label for="country">Location</label>
-               </div>
-               <div class="col-75">
+              </div>
+              <div class="col-75">
                 <input type="text" id="lname" name="lastname" placeholder="Enter Location">
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-25">
-                 <label for="subject">Opening Time</label>
-               </div>
-               <div class="col-75">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="subject">Opening Time</label>
+              </div>
+              <div class="col-75">
                 <input type="time" id="lname" name="lastname" placeholder="Opening Time">
-               </div>
-             </div>
-             <div class="row">
+              </div>
+            </div>
+            <div class="row">
               <div class="col-25">
                 <label for="subject">Closing Time</label>
               </div>
               <div class="col-75">
-               <input type="time" id="lname" name="lastname" placeholder="Closing Time">
+                <input type="time" id="lname" name="lastname" placeholder="Closing Time">
               </div>
-             </div>
-             <div class="row">
+            </div>
+            <div class="row">
               <div class="col-25">
                 <label for="subject">Email Id</label>
               </div>
               <div class="col-75">
-               <input type="email" id="lname" name="lastname" placeholder="Enter email address">
+                <input type="email" id="lname" name="lastname" placeholder="Enter email address">
               </div>
-             </div>
-             <div class="row">
+            </div>
+            <div class="row">
               <div class="col-25">
                 <label for="subject">Branches</label>
               </div>
               <div class="col-75">
-                <textarea id="subject" name="subject" placeholder="Enter the branches if any.." style="height:100px"></textarea>
+                <textarea id="subject" name="subject" placeholder="Enter the branches if any.."
+                  style="height:100px"></textarea>
               </div>
-             </div>
-             <div class="row">
+            </div>
+            <div class="row">
               <div class="col-25">
                 <label for="subject">Contact</label>
               </div>
               <div class="col-75">
-               <input type="tel" id="lname" name="lastname" placeholder="XXX XXX XXXX">
+                <input type="tel" id="lname" name="lastname" placeholder="XXX XXX XXXX">
               </div>
-             </div>
+            </div>
 
-             <div class="row">
-               <input type="submit" value="Submit" class="submitbtn"></div>
-               <a href=""></a>
-               
-             </div>
-           </form>
-         </div>
-        
-          </div>
-          <div id="food"> 
-            <div class="fooditem">
-            <h1 class="heading">Add Food Items</h1>
-           <a href="additems.html"> <i class='bx bx-plus'></i></a>
-          </div>
-             </div>
+            <div class="row">
+              <input type="submit" value="Submit" class="submitbtn">
+            </div>
+            <a href=""></a>
+
         </div>
-       
-        
-       </div>
-        </div>
+        </form>
+      </div>
+
+    </div>
+    <div id="food">
+      <div class="fooditem">
+        <h1 class="heading">Add Food Items</h1>
+        <a href="additems.html"> <span>+</span></a>
       </div>
     </div>
-    
-    </section>
-    
+    </div>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="../script/script.js" type="module"></script>
-    <script src="../script/admin.js"></script>
-  </body>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+  </section>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../script/script.js" type="module"></script>
+  <script src="../script/admin.js"></script>
+</body>
+
 </html>
