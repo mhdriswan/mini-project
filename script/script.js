@@ -223,7 +223,7 @@ customerregButton.click((e) => {
     });
 });
 
-// Restaurant Login
+// Customer Login
 
 const customerLoginBtn = $("#customerLoginBtn");
 
