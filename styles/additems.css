@@ -1,47 +1,90 @@
-*{
-  
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.box{
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-    height: 100vh;
-    background-image: linear-gradient(rgba(11, 10, 10, 0.65), rgba(0,0,0,0.65)),url("../images/pic.jpg");
-
+.box {
+  padding: 20px 0px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  height: 100vh;
+  background-image: linear-gradient(rgba(11, 10, 10, 0.65), rgba(0, 0, 0, 0.65)), url("../images/pic.jpg");
 }
 select {
-    font-size: 20px;
-    padding: 2px 5px;
+  font-size: 20px;
+  padding: 2px 5px;
 }
-h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 35px;
-    text-align: center;
+h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 35px;
+  text-align: center;
 }
-.container{
-    text-align: center;
-    font-size:25px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+.heading {
+  color: white;
+  margin: 20px auto;
 }
-label{
-    color: white;
-    display: inline-block
-    
+
+.container {
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-input{
-    /* display: inline-block; */
-    width: 25%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    
+.inputContainer {
+  background-color: rgba(249, 242, 242, 0.415);
+  padding: 30px;
+  width: 500px;
+  margin: 0 auto;
+  color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#food {
+  width: 100%;
+}
+
+#addItem {
+  margin-top: 20px;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: greenyellow;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.inputGroup {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+}
+
+.inputGroup > label {
+  width: 50%;
+}
+
+.inputGroup > * {
+  flex-grow: 1;
+}
+
+label {
+  color: white;
+}
+input {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit], input[type=number] {
-      width: 100%;
-      margin-top: 0;
-    }
+  .col-25,
+  .col-75,
+  input[type="submit"],
+  input[type="number"] {
+    width: 100%;
+    margin-top: 0;
+  }
 }

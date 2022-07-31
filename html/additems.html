@@ -1,56 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item Menu</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item Menu</title>
 </head>
 <link rel="stylesheet" href="../styles/additems.css">
+
 <body>
-    <div class="box">
-    <h1 class="heading">Type</h1>
+  <div class="box">
+    <h1 class="heading">Add Food Items</h1>
     <div class="container">
-        <form action="action_page">
-          <div class="row">
-            <div class="col-25">
-                <select name="foodtype" id="food">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Cuisine">Vegetables</option>
-                    <option value="Fruits">Fruits</option>
-                    <option value="Dairy">Dairy</option>
-                    <option value="Meat">Meat</option>
-                    <option value="jung">Jung Foods</option>
-                </select>
-            </div>
+      <form >
+        <div class="inputContainer">
+            <select name="foodtype" id="food">
+              <option value="">--Please choose an option--</option>
+              <option value="Cuisine">Vegetables</option>
+              <option value="Fruits">Fruits</option>
+              <option value="Dairy">Dairy</option>
+              <option value="Meat">Meat</option>
+              <option value="jung">Jung Foods</option>
+            </select>
+          <div class="inputGroup">
+            <label for="name"> Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter Food Name">
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="lname"> Name</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="Enter Food Name">
-            </div>
+          <div class="inputGroup">
+            <label for="prize">Prize:</label>
+            <input type="text" id="prize" name="prize" placeholder="Prize..."><i class='bx bx-rupee'></i>
           </div>
-          <div class="row">
-            <div class="col-25">
-             
-             <label for="Prize">Prize</label>
-            </div>
-            <div class="col-75">
-             <input type="text" id="lname" name="lastname" placeholder="Prize..."><i class='bx bx-rupee'></i>
-            </div>
+          <div class="inputGroup">
+            <label for="subject">Quantity:</label>
+            <input type="number" id="subject" name="subject" placeholder="Quandity per plate......">
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="subject">Quandity</label>
-            </div>
-            <div class="col-75">
-             <input type="number" id="lname" name="lastname" placeholder="Quandity per plate......">
-            </div>
-          </div>
-          </form>
+          <button type="submit" id="addItem">Add Item</button>
+        </div>
+      </form>
     </div>
-         
+
 </body>
+
 </html>
